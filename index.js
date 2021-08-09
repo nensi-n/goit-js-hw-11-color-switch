@@ -23,23 +23,14 @@ const randomIntegerFromInterval = (min, max) => {
 };
 
 function startChangeColor() {
- 
+    refs.startBtn.setAttribute('disabled', true);
     changeColor = setInterval(() => {
-        // while (true) {
-        //     let randomColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
-        //     if (refs.bodyColor.style.backgroundColor != randomColor) {
-        //         refs.bodyColor.style.backgroundColor = randomColor;
-        //         break;
-        //     }
-        // }
         refs.bodyColor.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
-        refs.startBtn.setAttribute('disabled', true);
-      
-  }, 1000);
+    }, 1000);
 };
 
 function stopChangeColor() {
-    refs.startBtn.removeAttribute('disabled');
     clearInterval(changeColor);
+    refs.startBtn.removeAttribute('disabled');
 };
 
